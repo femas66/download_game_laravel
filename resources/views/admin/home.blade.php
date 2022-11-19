@@ -7,6 +7,7 @@
     <title>Dashboard</title>
 </head>
 <body>
+    {{ Auth::user()->id }}
     <a href="{{ route('logout') }}">Logout</a>
 </body>
 </html>

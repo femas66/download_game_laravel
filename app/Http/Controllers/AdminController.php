@@ -9,8 +9,14 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+
     public function index() {
-        return view('admin.home');
+        if(Auth::check()) {
+            return view('admin.home');
+        }
+        else {
+            return redirect()->route('login');
+        }
     }
 
     public function login() {
@@ -31,13 +37,13 @@ class AdminController extends Controller
             return redirect()->route('homeadmin');
         }
         else {
-            return redirect()->route('login');
+            return back()->withErrors("Username or password is incorrect");
         }
     }
 
     public function register() {
-        $email = "admin@admin.com";
-        $name = "admin";
+        $email = "";
+        $name = "";
         $password = "admin";
         $data = [
             'email' => $email,
