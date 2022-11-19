@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listgame;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,12 +12,14 @@ class AdminController extends Controller
 {
 
     public function index() {
-        if(Auth::check()) {
-            return view('admin.home');
-        }
-        else {
+        if(!Auth::check()) {
             return redirect()->route('login');
         }
+
+        $listgame = Listgame::all();
+        $total = $listgame->count();
+        return view('admin.home', compact(['listgame', 'total']));
+
     }
 
     public function login() {
