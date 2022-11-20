@@ -40,7 +40,7 @@ class AdminController extends Controller
             return redirect()->route('homeadmin');
         }
         else {
-            return back()->withErrors("Username or password is incorrect");
+            return back()->withErrors("Username / password salah");
         }
     }
 
@@ -59,6 +59,6 @@ class AdminController extends Controller
 
     public function logout() {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('login')->with('msg', 'Berhasil logout');
     }
 }

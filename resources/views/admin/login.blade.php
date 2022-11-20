@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/alert.css">
-</head>
-<body>
+@extends('layout.master')
+@section('content')
+    
     @if($errors->any())
         @foreach ($errors->all() as $item)
-        <div class="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';" style="padding: 20px; padding-bottom:20px; padding-top:20px">&times;</span>
+        <div class="alert alert-danger" role="alert">
             {{ $item }}
-        </div> 
+        </div>          
         @endforeach
-
+    @endif
+    @if($msg = Session::get('msg'))
+    <div class="alert alert-success" role="alert">
+        {{ Session::get('msg') }}
+    </div>
     @endif
     <form action="{{ route('actionlogin') }}" method="POST">
     @csrf
@@ -24,14 +19,13 @@
         <h1>Login</h1>
         <p>Please fill in this form to login.</p>
         <hr>
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+        <label for="email" class="form-label">Email</label>
+        <input type="text" placeholder="Enter Email" name="email" id="email" class="form-control" required>
       
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" id="psw" required>
+        <label for="psw" class="form-label">Password</label>
+        <input type="password" placeholder="Enter Password" name="password" id="psw" class="form-control" required>
         <hr>
-        <button type="submit" class="registerbtn">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </div>
-    </form> 
-</body>
-</html>
+    </form>
+@endsection
