@@ -9,7 +9,6 @@ class HomeController extends Controller
 {
     public function index() {
         $listgame = Listgame::all();
-        $total = $listgame->count();
-        return view('home', compact(['listgame', 'total']));
+        return view('home', ['$list' => $listgame]);
     }
 }

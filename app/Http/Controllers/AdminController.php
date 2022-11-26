@@ -36,7 +36,13 @@ class AdminController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password')
         ];
-        if (Auth::attempt($data)) {
+        $remem = false;
+
+        if($request->remember == 'on') {
+            $remem = true;
+        }
+
+        if (Auth::attempt($data, $remem)) {
             return redirect()->route('homeadmin');
         }
         else {

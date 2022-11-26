@@ -1,6 +1,7 @@
 @extends('layout.master')
 @section('content')
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
@@ -11,13 +12,13 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-home"></i> Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('tambahgame') }}">Tambah game</a>
+                    <a class="nav-link" href="{{ route('tambahgame') }}"><i class="fa fa-plus"></i> Tambah game</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}" style="color: red;">Logout</a>
+                    <a class="nav-link" href="{{ route('logout') }}" style="color: red;"><i class="fa fa-sign-out"></i> Logout</a>
                   </li>
                 </ul>
               </div>

@@ -24,6 +24,11 @@
       
         <label for="psw" class="form-label">Password</label>
         <input type="password" placeholder="Enter Password" name="password" id="psw" class="form-control" required>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="remember">
+            <label class="form-check-label" for="flexCheckDefault">Remember me</label>
+        </div>
+  
         <hr>
         <button type="submit" class="btn btn-primary">Login</button>
     </div>
